@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { updateRole } from "../features/user/userSlice";
 
-import { toastSuccess, toastError } from "../utils/toast";
+import { toastSuccess, toastError } from "../utils/toast"; 
 import axios from "axios";
 
 export default function AdminRequest({ open, setOpen }) {
