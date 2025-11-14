@@ -46,9 +46,10 @@ app.use((req, res) => {
 
 connect().then((e) => {
     console.log(e);
-    app.listen(PORT, () => {
-        console.log(`Server is running: http://localhost:${PORT}`);
-    })
+    // no need to listen when deploying on vercel
+    // app.listen(PORT, () => {
+    //     console.log(`Server is running: http://localhost:${PORT}`);
+    // })
 })
     .catch((e) => {
         console.log(e);
