@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import useTryItLive from "../../hooks/useTryItLive";
 import { categories } from "../../data/categories";
@@ -22,18 +22,16 @@ export default function TryItLive() {
         response,
         loading,
         url,
-        setUrl, 
+        setUrl,
         tryRequest,
     } = useTryItLive();
 
     // const baseUrl = import.meta.env.VITE_BACKEND_URL;
-    const isFetchingApi = false;
+    const [isFetchingApi, setIsFetchingApi] = useState(false);
     const fetchUserApiKey = async () => {
         try {
-            isFetchingApi = true;
-            const res = await axios.get(`/api/get-api-key`, {
-                withCredentials: true,
-            });
+            setIsFetchingApi(true);
+            const res = await axios.get(`/api/get-api-key`, { withCredentials: true });
 
             if (res?.data?.key) {
                 setApiKey(res.data.key);
@@ -41,11 +39,10 @@ export default function TryItLive() {
             } else {
                 toastError(res.data?.message || "No API key found");
             }
-
         } catch (err) {
             toastError(err.response?.data?.message || "Please login to use this feature");
         } finally {
-            isFetchingApi = false;
+            setIsFetchingApi(false);
         }
     };
 
@@ -87,7 +84,7 @@ export default function TryItLive() {
                                 onClick={fetchUserApiKey}
                                 className="px-4 py-2 text-sm bg-blue-600 text-white rounded-md hover:bg-blue-700 whitespace-nowrap cursor-pointer"
                             >
-                                {isFetchingApi ? "Use My Key" : "getting..."}
+                                {isFetchingApi ? "getting..." : "Use My Key"}
                             </button>
                         </div>
                     </div>
