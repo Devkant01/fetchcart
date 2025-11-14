@@ -180,7 +180,7 @@ export default function TryItLive() {
                             ))}
                         </div>
                     ) : (
-                        <div className="max-h-72 overflow-auto rounded-md border p-2 bg-gray-50">
+                        <div className="max-h-58 overflow-auto rounded-md border p-2 bg-gray-50">
                             <CodeBlock
                                 lang="json"
                                 code={
