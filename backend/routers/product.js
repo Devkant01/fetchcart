@@ -6,7 +6,7 @@ const { serveAllProducts, serveProductsCategoryBased, serveProductsSubCategoryBa
 const { upload } = require('../middleware/multerMiddleware.js');
 const { editProduct } = require('../controllers/product/editProduct.js');
 const { createProduct} = require('../controllers/product/createProduct.js');
-const { deleteProduct } = require('../controllers/Product/deleteProduct.js');
+const { deleteProduct } = require('../controllers/product/deleteProduct.js');
 const { getAdminProducts } = require('../controllers/product/getAdminProducts.js');
 const { multerErrorHandler } = require("../controllers/product/multerErrorHandler.js");
 
