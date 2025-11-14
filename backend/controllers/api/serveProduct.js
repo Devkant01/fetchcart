@@ -6,7 +6,7 @@ async function serveAllProducts(req, res) {
     const { limit } = req.query;
     try {
         const response = await Product.find()
-            .select("-author -cloudinary_id -createdAt -updatedAt -__v -_id");
+            .select("-author -cloudinary_id -createdAt -updatedAt -__v -_id -images._id");
 
         const productsWithId = response.map((item, index) => ({
             id: index + 1,
