@@ -1,5 +1,3 @@
-// src/data/categories.js
-
 export const categories = [
     {
         name: "Electronics",
@@ -33,17 +31,6 @@ export const categories = [
             "Storage Devices",
             "Routers",
             "Printers"
-        ],
-    },
-    {
-        name: "Fashion",
-        subcategories: [
-            "Men's Clothing",
-            "Women's Clothing",
-            "Kids' Clothing",
-            "Footwear",
-            "Accessories",
-            "Jewelry"
         ],
     },
     {
@@ -83,13 +70,12 @@ export const categories = [
     {
         name: "Groceries & Essentials",
         subcategories: [
-            "Fruits",
-            "Vegetables",
             "Snacks",
+            "Fruits",
             "Beverages",
-            "Household Essentials",
-            "Rice & Grains",
-            "Oil & Ghee"
+            "vegetables",
+            "Dairy Products",
+            "Household Essentials"
         ],
     },
     {
@@ -120,42 +106,8 @@ export const categories = [
             "Gym Equipment",
             "Outdoor Gear",
             "Sportswear",
-            "Bicycles",
-            "Footwear",
             "Cricket Gear",
             "Badminton Gear"
-        ],
-    },
-    {
-        name: "Automotive",
-        subcategories: [
-            "Car Accessories",
-            "Bike Accessories",
-            "Lubricants",
-            "Spare Parts",
-            "Tools",
-            "Car Electronics"
-        ],
-    },
-    {
-        name: "Pet Supplies",
-        subcategories: [
-            "Dog Food",
-            "Cat Food",
-            "Toys",
-            "Grooming",
-            "Accessories",
-            "Pet Health"
-        ],
-    },
-    {
-        name: "Health & Wellness",
-        subcategories: [
-            "Protein & Supplements",
-            "Medical Devices",
-            "First Aid",
-            "Personal Hygiene",
-            "Sanitizers"
         ],
     },
     {

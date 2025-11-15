@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
+import  CodeAnimate  from "./CodeAnimate";
 
 export default function Hero() {
     return (
@@ -45,25 +46,7 @@ export default function Hero() {
                     transition={{ duration: 0.5 }}
                 >
                     <div className="rounded-md overflow-hidden bg-[#0f1724] text-white font-mono text-sm">
-                        <pre className="p-4">
-                            {`GET https://api.fetchcart.com/v1/products?apiKey=YOUR_KEY&category=electronics&limit=3
-
-Response:
-{
-  "data": [
-    {
-      "id": "prod_1a2b3c",
-      "title": "Noise-Cancelling Headphones",
-      "price": 129.99,
-      "category": "electronics",
-      "subcategory": "headphones",
-      "image": "https://cdn.fetchcart.com/images/prod_1a2b3c.jpg",
-      "seller": "Acme Store"
-    },
-    ...
-  ]
-}`}
-                        </pre>
+                        <CodeAnimate />
                     </div>
                 </motion.div>
             </div>
