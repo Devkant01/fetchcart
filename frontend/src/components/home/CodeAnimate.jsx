@@ -104,7 +104,7 @@ export default function FetchCartTypingAnimation() {
 
     return (
         <div className="w-full max-w-3xl bg-gray-900 rounded-xl shadow-2xl p-6">
-            <div className="text-sm text-green-400 font-mono overflow-x-auto whitespace-nowrap pb-4 border-b border-white/10">
+            <div className="text-sm text-green-400 font-mono overflow-x-auto whitespace-nowrap pb-4 border-b border-white/10 thin-scroll">
                 {typedRequest}
                 <span className={`${cursorOn ? "opacity-100" : "opacity-0"} inline-block w-1 ml-1 h-5 bg-green-400`} />
             </div>
@@ -112,7 +112,7 @@ export default function FetchCartTypingAnimation() {
             <div className="mt-4 text-sm font-mono text-slate-200">
                 <div className="mb-2 text-slate-400">Response:</div>
 
-                <div className="bg-black/40 rounded-md p-4 text-xs h-64 overflow-y-auto">
+                <div className="bg-black/40 rounded-md p-4 text-xs h-64 overflow-y-auto thin-scroll">
                     {visibleResponseLines.map((line, idx) => (
                         <pre key={idx} className="whitespace-pre leading-5">
                             {line}
