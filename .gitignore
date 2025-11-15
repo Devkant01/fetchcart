@@ -1,0 +1,16 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+/dist
+/build
+
+# Env files (keep local only)
+*.env
+frontend/*.env
+backend/*.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
