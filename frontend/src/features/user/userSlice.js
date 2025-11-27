@@ -4,9 +4,9 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
     name: 'emailAuth',
     initialState: {
-        isLoggedIn: true,
-        email: 'sneakers.vintage108@gmail.com',
-        name: 'undefined',
+        isLoggedIn: false,
+        email: undefined,
+        name: undefined,
         role: undefined,
         chekcing: true,
     },
