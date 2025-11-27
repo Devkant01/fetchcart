@@ -15,11 +15,11 @@ export default function LoginAuth() {
     // const [error, setError] = useState("");
     const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
-    useEffect(() => {
-        if (isLoggedIn) {
-            navigate("/");
-        }
-    }, [isLoggedIn, navigate]);
+    // useEffect(() => {
+    //     if (isLoggedIn) {
+    //         navigate("/");
+    //     }
+    // }, [isLoggedIn, navigate]);
 
     const handleLogin = async (e) => {
         e.preventDefault();

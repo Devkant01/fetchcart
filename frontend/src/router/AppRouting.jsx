@@ -7,14 +7,15 @@ import AdminPage from '../pages/AdminPage';
 import NotFound from '../pages/NotFound';
 import LoginAuth from '../pages/LoginAuth';
 import SignupAuth from '../pages/SignupAuth';
+import PublicRoute from '../components/PublicRoute';
 
 function AppRouting() {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/docs" element={<Documentaion />} />
-            <Route path="/login" element={<LoginAuth />} />
-            <Route path="/signup" element={<SignupAuth />} />
+            <Route path="/login" element={<PublicRoute><LoginAuth /></PublicRoute>} />
+            <Route path="/signup" element={<PublicRoute><SignupAuth /></PublicRoute>} />
             {/* <Route path="/logout" element={<Logout />} /> */}
 
             <Route element={<ProtectedRoute />}>

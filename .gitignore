@@ -1,5 +1,6 @@
 # Node
 node_modules/
+firebaseAuth/
 npm-debug.log
 yarn-error.log
 /dist
