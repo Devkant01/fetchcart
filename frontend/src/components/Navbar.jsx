@@ -168,7 +168,7 @@ export default function Navbar() {
                                                         className="w-14 h-14 rounded-full object-cover border"
                                                     />
 
-                                                    <div className="flex flex-col overflow-x-scroll">
+                                                    <div className="flex flex-col overflow-hidden">
                                                         <p className="font-semibold text-base leading-5" title={name}>{name}</p>
                                                         <p className="text-gray-600 text-sm leading-4 truncate" title={email}>{email}</p>
                                                     </div>
