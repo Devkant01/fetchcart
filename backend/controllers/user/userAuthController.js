@@ -1,6 +1,7 @@
 const User = require("../../models/user");
 const bcrypt = require('bcrypt');
-const { salt_rounds, admin_psw, node_env } = require("../../config/config");
+const admin = require("../../auth/firebaseAdmin")
+const { salt_rounds, node_env, def_psw } = require("../../config/config");
 const { generateToken } = require("../../utils/generateToken");
 
 
@@ -39,6 +40,13 @@ async function signinController(req, res) {
         const user = await User.findOne({ email });
         if (!user) {
             return res.status(404).json({ message: "User not found" });
+        }
+
+        const isGoogleUser = await bcrypt.compare(def_psw, user.password);
+        if (isGoogleUser) {
+            return res.status(400).json({
+                message: "This email is registered with Google Sign-In. Please use Google login."
+            });
         }
 
         const isPasswordCorrect = await bcrypt.compare(password, user.password);
@@ -147,14 +155,65 @@ async function signupController(req, res) {
 
         return res.status(201).json({ message: "User created successfully", ...responseUser });
     } catch (error) {
-        console.log("Alert! controller/userAuthController~signup just knocked");
+        console.log("Alert! controller/user/userAuthController~signup just knocked");
         return res.status(500).json({ message: "Internal Server Error" });
     }
 }
+
+async function googleLogin(req, res) { 
+    try {
+        const { token } = req.body;
+
+        // Verify Firebase token
+        const decoded = await admin.auth().verifyIdToken(token);
+
+        const { email, name } = decoded; //no need of profile picture and other details for now
+        let user = await User.findOne({ email });
+
+        const hashedPassword = await bcrypt.hash(def_psw, Number(salt_rounds));
+        // Create new user if not exists
+        if (!user) {
+            user = await User.create({
+                name,
+                email,
+                password: hashedPassword, // Optional since Google users don't need password
+                role: "user",
+            });
+        }
+
+        const payload = { objectId: user._id, name: user.name, email: user.email, role: user.role };
+        const jwtToken = generateToken(payload);
+
+        res.cookie("token", jwtToken, {
+            path: '/',
+            httpOnly: true,
+            secure: node_env === 'production',
+            sameSite: node_env === 'production' ? 'none' : 'lax',
+            maxAge: 24 * 60 * 60 * 1000, // 1 day
+        });
+
+        const responseUser = {
+            name: user.name,
+            email: user.email,
+            role: user.role,
+        };
+
+        if (node_env === 'development') {
+            responseUser.token = token;
+        }
+
+        return res.status(201).json({ message: "User created successfully", ...responseUser });
+
+    } catch (err) {
+        console.log("Alert! controller/user/GoogleAuthController just knocked");
+        return res.status(400).json({ message: "Invalid Google Token" });
+    }
+};
 
 module.exports = {
     signinController,
     signupController,
     logoutController,
-    userController
+    userController,
+    googleLogin
 }

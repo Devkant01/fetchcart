@@ -5,6 +5,7 @@ export const categories = [
             "Mobile Phones",
             "Laptops",
             "Headphones",
+            "Earbuds",
             "Smart Watches",
             "Cameras",
             "Speakers",
@@ -14,11 +15,9 @@ export const categories = [
     {
         name: "Mobiles & Accessories",
         subcategories: [
-            "Smartphones",
             "Back Covers",
             "Chargers & Cables",
             "Screen Protectors",
-            "Earbuds",
             "Smart Bands"
         ],
     },

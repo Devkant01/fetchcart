@@ -8,4 +8,14 @@ module.exports = {
     node_env: process.env.NODE_ENVIRONMENT,
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_secret: process.env.CLOUDINARY_API_SECRET,
+    def_psw: process.env.def_psw,
+    project_key_id: process.env.PROJECT_KEY_ID,
+    project_key: process.env.PROJECT_KEY.replace(/\\n/g, '\n'),
+    client_email: process.env.PROJECT_CLIENT_EMAIL,
+    client_id: process.env.PROJECT_CLIENT_ID,
+    auth_uri: process.env.PROJECT_AUTH_URI,
+    token_uri: process.env.PROJECT_TOKEN_URI,
+    auth_cert_url: process.env.PROJECT_AUTH_CERT_URL,
+    client_cert_url: process.env.PROJECT_CLIENT_CERT_URL,
+    
 };
