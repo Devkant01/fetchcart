@@ -7,10 +7,10 @@ yarn-error.log
 /build
 
 # Env files (keep local only)
+.env
 *.env
 frontend/*.env
-backend/*.env
-backend/*.firebase-secret.json
+backend/.env
 
 # OS / editor
 .DS_Store
